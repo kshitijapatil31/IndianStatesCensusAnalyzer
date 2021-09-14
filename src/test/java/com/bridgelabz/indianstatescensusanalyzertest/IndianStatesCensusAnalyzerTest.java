@@ -30,6 +30,15 @@ public class IndianStatesCensusAnalyzerTest {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
+	public void givenCSVFile_whenFileIscorrect_ButTypeIsIncorrect_throwException() {
+		StatesCensusAnalyzer analyzer=new StatesCensusAnalyzer();
+		try {
+			Assert.assertEquals(56, analyzer.checkFile());
+		} catch (Exception e) {
+			
+			e.getMessage();
+		}
+	}
 	
 }

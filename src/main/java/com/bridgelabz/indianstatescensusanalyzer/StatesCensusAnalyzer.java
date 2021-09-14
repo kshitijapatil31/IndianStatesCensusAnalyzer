@@ -6,9 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 
 import com.opencsv.CSVReader;
 
@@ -18,9 +16,10 @@ public class StatesCensusAnalyzer {
 	
 	
 	public static void main(String[] args) throws IOException {
-		loadStatesdata();
+		StatesCensusAnalyzer ana=new StatesCensusAnalyzer();
+		ana.loadStatesdata();
 	}
-	public static void loadStatesdata() throws IOException{
+	public  int loadStatesdata() throws IOException{
 		try (
 			FileReader reader=new FileReader("IndiaStateCensusData.csv");
 		    CSVReader csvReader=new CSVReader (reader);
@@ -40,7 +39,7 @@ public class StatesCensusAnalyzer {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		
+		return states.size();
 	}
 
 }

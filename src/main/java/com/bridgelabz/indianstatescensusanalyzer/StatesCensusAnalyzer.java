@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -40,6 +41,15 @@ public class StatesCensusAnalyzer {
 			e.printStackTrace();
 		}
 		return states.size();
+	}
+	
+	public boolean checkFile() throws StatesCensusException {
+		File file=new File("IndiaStateCensusData.csv");
+		if(file.exists()) {
+			return true;
+		}else {
+			throw new StatesCensusException("file not found");
+		}
 	}
 
 }
